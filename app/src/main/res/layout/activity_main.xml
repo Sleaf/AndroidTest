@@ -11,22 +11,31 @@
                                           android:orientation="vertical"/>
     <Button
             android:text="@string/t1"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/button1"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="24dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="20dp"
             android:onClick="onButton1"/>
     <Button
             android:text="@string/t2"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:id="@+id/button2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="24dp"
-            android:layout_marginStart="204dp"
-            android:onClick="onButton2"/>
+            android:onClick="onButton2" android:layout_marginStart="192dp"/>
+    <Button
+            android:text="@string/t3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="84dp"
+            android:onClick="onButton3"/>
 </android.support.constraint.ConstraintLayout>

@@ -22,4 +22,8 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(intent, 0)
     }
 
+    fun onButton3(view: View?) {
+        val intent = Intent(this, BaiduMapActivity::class.java)
+        startActivityForResult(intent, 0)
+    }
 }

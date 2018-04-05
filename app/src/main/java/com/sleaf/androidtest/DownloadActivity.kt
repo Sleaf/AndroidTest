@@ -39,6 +39,7 @@ class DownloadActivity : AppCompatActivity() {
         mToggle = findViewById(R.id.toggleBtn)
         //创建文件信息对象
         val fileInfo = FileInfo(0, "http://180.153.105.146/sqdd.myapp.com/myapp/qqteam/tim/down/tim.apk?mkey=5abbb9fedaff7890&f=8f88&c=0&p=.apk", "tim.apk", 0, 0)
+        mDownloadFilename?.text = fileInfo.fileName;
         //添加事件监听
         mToggle!!.setOnClickListener(View.OnClickListener {
             val intent = Intent(this@DownloadActivity, DownloadService::class.java)
@@ -75,7 +76,7 @@ class DownloadActivity : AppCompatActivity() {
 
 
 //服务信息
-open class DownloadService : Service() {
+class DownloadService : Service() {
     companion object {
         const val ACTION_START = "ACTION_START"
         const val ACTION_STOP = "ACTION_STOP"
@@ -163,25 +164,25 @@ open class DownloadService : Service() {
 }
 
 //文件信息
-open class FileInfo(val id: Int,
-                    val url: String,
-                    val fileName: String,
-                    var length: Int,
-                    val finished: Int) : Serializable {
+class FileInfo(val id: Int,
+               val url: String,
+               val fileName: String,
+               var length: Int,
+               val finished: Int) : Serializable {
     override fun toString(): String {
         return "fileInfo(id=$id, url=$url, fileName=$fileName, length=$length, finished=$finished)"
     }
 }
 
 //线程信息
-open class ThreadInfo(val id: Int, val url: String, val start: Int, val end: Int, val finished: Int) {
+class ThreadInfo(val id: Int, val url: String, val start: Int, val end: Int, val finished: Int) {
     override fun toString(): String {
         return "ThreadInfo(id=$id, start=$start, end=$end, finished=$finished)"
     }
 }
 
 //数据库
-open class DBHepler(context: Context?, name: String = DB_NAME, factory: SQLiteDatabase.CursorFactory? = null, version: Int = VERSION, errorHandler: DatabaseErrorHandler? = null) : SQLiteOpenHelper(context, name, factory, version, errorHandler) {
+class DBHepler(context: Context?, name: String = DB_NAME, factory: SQLiteDatabase.CursorFactory? = null, version: Int = VERSION, errorHandler: DatabaseErrorHandler? = null) : SQLiteOpenHelper(context, name, factory, version, errorHandler) {
     companion object {
         const val DB_NAME = "download.db"
         const val VERSION = 1
@@ -208,7 +209,7 @@ interface ThreadDAO {
     fun isExists(url: String, thread_id: Int): Boolean
 }
 
-open class ThreadDAOImpl(context: Context?) : ThreadDAO {
+class ThreadDAOImpl(context: Context?) : ThreadDAO {
     val mHelper = DBHepler(context)
 
     override fun insertThread(threadInfo: ThreadInfo) {
@@ -256,7 +257,7 @@ open class ThreadDAOImpl(context: Context?) : ThreadDAO {
     }
 }
 
-open class DownloadTask(val mContext: Context, val mFileInfo: FileInfo) {
+class DownloadTask(val mContext: Context, val mFileInfo: FileInfo) {
     val mDao = ThreadDAOImpl(mContext)
     var mFinished = 0
     var isPause = false
