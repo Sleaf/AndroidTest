@@ -2,4 +2,5 @@
     <string name="app_name">Sleaf的安卓实验基地</string>
     <string name="t1">实验1_跳转并传参</string>
     <string name="t2">实验2_断点续传</string>
+    <string name="t3">实验3_百度地图</string>
 </resources>

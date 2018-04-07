@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/id_map_mylocation" android:title="我的位置"/>
+    <item android:id="@+id/id_map_mode_common" android:title="普通模式"/>
+    <item android:id="@+id/id_map_mode_follow" android:title="跟随模式"/>
+    <item android:id="@+id/id_map_mode_compass" android:title="罗盘模式"/>
+    <item android:id="@+id/id_map_overlay" android:title="添加覆盖物"/>
+    <item android:id="@+id/id_map_common" android:orderInCategory="100" android:title="普通地图"/>
+    <item android:id="@+id/id_map_site" android:orderInCategory="100" android:title="卫星地图"/>
+    <item android:id="@+id/id_map_traffic" android:orderInCategory="100" android:title="实时交通(off)"/>
+</menu>
